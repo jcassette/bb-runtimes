@@ -41,9 +41,6 @@ __vectors0:
 	.thumb_func
 	.globl _start_rom
 _start_rom:
-        /* Enable FPU and cache when appropriate */
-        bl _stm32_start_common
-
 	/* Copy .data */
 	movw	r0,#:lower16:__data_start
 	movt	r0,#:upper16:__data_start

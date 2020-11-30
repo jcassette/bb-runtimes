@@ -923,7 +923,6 @@ class Stm32F1(CortexM3):
             'arm/stm32f1/s-stm32.ads',
             'arm/stm32f1/start-rom.S',
             'arm/stm32f1/start-ram.S',
-            'arm/stm32f1/start-common.S',
             'arm/stm32f1/setup_pll.adb',
             'arm/stm32f1/setup_pll.ads')
 

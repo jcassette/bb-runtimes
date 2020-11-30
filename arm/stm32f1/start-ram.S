@@ -22,7 +22,7 @@
 #############################################################################
 
 	.syntax unified
-	.cpu cortex-m4
+	.cpu cortex-m3
 	.thumb
 
 	.section .vectors,"a"
@@ -40,9 +40,6 @@ __vectors0:
 _start_ram:
 	/* Init stack */
 	ldr	sp,.LinitSp
-
-        /* Enable FPU and cache when appropriate */
-        bl _stm32_start_common
 
 	/* Clear .bss */
 	movw	r0,#:lower16:__bss_start
