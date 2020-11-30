@@ -1,13 +1,12 @@
 --
---  Copyright (C) 2017, AdaCore
+--  Copyright (C) 2020, AdaCore
 --
+
+pragma Style_Checks (Off);
 
 --  This spec has been automatically generated from STM32F103.svd
 
-pragma Ada_2012;
-pragma Style_Checks (Off);
 
-with Interfaces.STM32;
 with System;
 
 package Interfaces.STM32.USART is
@@ -51,7 +50,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_9_31 : Interfaces.STM32.UInt23 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SR_Register use record
@@ -76,7 +75,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_9_31 : Interfaces.STM32.UInt23 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for DR_Register use record
@@ -96,7 +95,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_16_31 : Interfaces.STM32.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BRR_Register use record
@@ -146,14 +145,14 @@ package Interfaces.STM32.USART is
       PCE            : CR1_PCE_Field := 16#0#;
       --  Wakeup method
       WAKE           : CR1_WAKE_Field := 16#0#;
-      --  UInt32 length
+      --  Word length
       M              : CR1_M_Field := 16#0#;
       --  USART enable
       UE             : CR1_UE_Field := 16#0#;
       --  unspecified
       Reserved_14_31 : Interfaces.STM32.UInt18 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR1_Register use record
@@ -199,7 +198,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_15_31 : Interfaces.STM32.UInt17 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR2_Register use record
@@ -239,7 +238,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_8_31 : Interfaces.STM32.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR3_Register use record
@@ -270,7 +269,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_8_31 : Interfaces.STM32.UInt24 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR3_Register_1 use record
@@ -310,7 +309,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_10_31 : Interfaces.STM32.UInt22 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SR_Register_1 use record
@@ -359,7 +358,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_15_31 : Interfaces.STM32.UInt17 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR2_Register_1 use record
@@ -410,7 +409,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_11_31 : Interfaces.STM32.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR3_Register_2 use record
@@ -440,7 +439,7 @@ package Interfaces.STM32.USART is
       --  unspecified
       Reserved_16_31 : Interfaces.STM32.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for GTPR_Register use record
@@ -481,7 +480,7 @@ package Interfaces.STM32.USART is
 
    --  Universal asynchronous receiver transmitter
    UART4_Periph : aliased UART4_Peripheral
-     with Import, Address => System'To_Address (16#40004C00#);
+     with Import, Address => UART4_Base;
 
    --  Universal asynchronous receiver transmitter
    type UART5_Peripheral is record
@@ -511,7 +510,7 @@ package Interfaces.STM32.USART is
 
    --  Universal asynchronous receiver transmitter
    UART5_Periph : aliased UART5_Peripheral
-     with Import, Address => System'To_Address (16#40005000#);
+     with Import, Address => UART5_Base;
 
    --  Universal synchronous asynchronous receiver transmitter
    type USART_Peripheral is record
@@ -544,14 +543,14 @@ package Interfaces.STM32.USART is
 
    --  Universal synchronous asynchronous receiver transmitter
    USART1_Periph : aliased USART_Peripheral
-     with Import, Address => System'To_Address (16#40013800#);
+     with Import, Address => USART1_Base;
 
    --  Universal synchronous asynchronous receiver transmitter
    USART2_Periph : aliased USART_Peripheral
-     with Import, Address => System'To_Address (16#40004400#);
+     with Import, Address => USART2_Base;
 
    --  Universal synchronous asynchronous receiver transmitter
    USART3_Periph : aliased USART_Peripheral
-     with Import, Address => System'To_Address (16#40004800#);
+     with Import, Address => USART3_Base;
 
 end Interfaces.STM32.USART;

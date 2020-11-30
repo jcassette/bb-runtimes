@@ -1,6 +1,8 @@
 --
---  Copyright (C) 2017, AdaCore
+--  Copyright (C) 2020, AdaCore
 --
+
+pragma Style_Checks (Off);
 
 --  This spec has been automatically generated from STM32F103.svd
 

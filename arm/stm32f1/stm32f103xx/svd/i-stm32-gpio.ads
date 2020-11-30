@@ -1,13 +1,12 @@
 --
---  Copyright (C) 2017, AdaCore
+--  Copyright (C) 2020, AdaCore
 --
+
+pragma Style_Checks (Off);
 
 --  This spec has been automatically generated from STM32F103.svd
 
-pragma Ada_2012;
-pragma Style_Checks (Off);
 
-with Interfaces.STM32;
 with System;
 
 package Interfaces.STM32.GPIO is
@@ -18,37 +17,153 @@ package Interfaces.STM32.GPIO is
    -- Registers --
    ---------------
 
-   subtype Cnf_Mode is Interfaces.STM32.UInt4;
+   subtype CRL_MODE0_Field is Interfaces.STM32.UInt2;
+   subtype CRL_CNF0_Field is Interfaces.STM32.UInt2;
+   subtype CRL_MODE1_Field is Interfaces.STM32.UInt2;
+   subtype CRL_CNF1_Field is Interfaces.STM32.UInt2;
+   subtype CRL_MODE2_Field is Interfaces.STM32.UInt2;
+   subtype CRL_CNF2_Field is Interfaces.STM32.UInt2;
+   subtype CRL_MODE3_Field is Interfaces.STM32.UInt2;
+   subtype CRL_CNF3_Field is Interfaces.STM32.UInt2;
+   subtype CRL_MODE4_Field is Interfaces.STM32.UInt2;
+   subtype CRL_CNF4_Field is Interfaces.STM32.UInt2;
+   subtype CRL_MODE5_Field is Interfaces.STM32.UInt2;
+   subtype CRL_CNF5_Field is Interfaces.STM32.UInt2;
+   subtype CRL_MODE6_Field is Interfaces.STM32.UInt2;
+   subtype CRL_CNF6_Field is Interfaces.STM32.UInt2;
+   subtype CRL_MODE7_Field is Interfaces.STM32.UInt2;
+   subtype CRL_CNF7_Field is Interfaces.STM32.UInt2;
 
-   type CRL_Field_Array is array (0 .. 7) of Cnf_Mode
-     with Component_Size => 4, Size => 32;
-
-   type CRL_Register
-     (As_Array : Boolean := False)
-   is record
-      case As_Array is
-         when False =>
-            Val : Interfaces.STM32.UInt32;
-         when True =>
-            Arr : CRL_Field_Array;
-      end case;
+   --  Port configuration register low (GPIOn_CRL)
+   type CRL_Register is record
+      --  Port n.0 mode bits
+      MODE0 : CRL_MODE0_Field := 16#0#;
+      --  Port n.0 configuration bits
+      CNF0  : CRL_CNF0_Field := 16#1#;
+      --  Port n.1 mode bits
+      MODE1 : CRL_MODE1_Field := 16#0#;
+      --  Port n.1 configuration bits
+      CNF1  : CRL_CNF1_Field := 16#1#;
+      --  Port n.2 mode bits
+      MODE2 : CRL_MODE2_Field := 16#0#;
+      --  Port n.2 configuration bits
+      CNF2  : CRL_CNF2_Field := 16#1#;
+      --  Port n.3 mode bits
+      MODE3 : CRL_MODE3_Field := 16#0#;
+      --  Port n.3 configuration bits
+      CNF3  : CRL_CNF3_Field := 16#1#;
+      --  Port n.4 mode bits
+      MODE4 : CRL_MODE4_Field := 16#0#;
+      --  Port n.4 configuration bits
+      CNF4  : CRL_CNF4_Field := 16#1#;
+      --  Port n.5 mode bits
+      MODE5 : CRL_MODE5_Field := 16#0#;
+      --  Port n.5 configuration bits
+      CNF5  : CRL_CNF5_Field := 16#1#;
+      --  Port n.6 mode bits
+      MODE6 : CRL_MODE6_Field := 16#0#;
+      --  Port n.6 configuration bits
+      CNF6  : CRL_CNF6_Field := 16#1#;
+      --  Port n.7 mode bits
+      MODE7 : CRL_MODE7_Field := 16#0#;
+      --  Port n.7 configuration bits
+      CNF7  : CRL_CNF7_Field := 16#1#;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access;
+     with Volatile_Full_Access, Object_Size => 32,
+          Bit_Order => System.Low_Order_First;
 
-   type CRH_Field_Array is array (0 .. 7) of Cnf_Mode
-     with Component_Size => 4, Size => 32;
+   for CRL_Register use record
+      MODE0 at 0 range 0 .. 1;
+      CNF0  at 0 range 2 .. 3;
+      MODE1 at 0 range 4 .. 5;
+      CNF1  at 0 range 6 .. 7;
+      MODE2 at 0 range 8 .. 9;
+      CNF2  at 0 range 10 .. 11;
+      MODE3 at 0 range 12 .. 13;
+      CNF3  at 0 range 14 .. 15;
+      MODE4 at 0 range 16 .. 17;
+      CNF4  at 0 range 18 .. 19;
+      MODE5 at 0 range 20 .. 21;
+      CNF5  at 0 range 22 .. 23;
+      MODE6 at 0 range 24 .. 25;
+      CNF6  at 0 range 26 .. 27;
+      MODE7 at 0 range 28 .. 29;
+      CNF7  at 0 range 30 .. 31;
+   end record;
 
-   type CRH_Register
-     (As_Array : Boolean := False)
-   is record
-      case As_Array is
-         when False =>
-            Val : Interfaces.STM32.UInt32;
-         when True =>
-            Arr : CRH_Field_Array;
-      end case;
+   subtype CRH_MODE8_Field is Interfaces.STM32.UInt2;
+   subtype CRH_CNF8_Field is Interfaces.STM32.UInt2;
+   subtype CRH_MODE9_Field is Interfaces.STM32.UInt2;
+   subtype CRH_CNF9_Field is Interfaces.STM32.UInt2;
+   subtype CRH_MODE10_Field is Interfaces.STM32.UInt2;
+   subtype CRH_CNF10_Field is Interfaces.STM32.UInt2;
+   subtype CRH_MODE11_Field is Interfaces.STM32.UInt2;
+   subtype CRH_CNF11_Field is Interfaces.STM32.UInt2;
+   subtype CRH_MODE12_Field is Interfaces.STM32.UInt2;
+   subtype CRH_CNF12_Field is Interfaces.STM32.UInt2;
+   subtype CRH_MODE13_Field is Interfaces.STM32.UInt2;
+   subtype CRH_CNF13_Field is Interfaces.STM32.UInt2;
+   subtype CRH_MODE14_Field is Interfaces.STM32.UInt2;
+   subtype CRH_CNF14_Field is Interfaces.STM32.UInt2;
+   subtype CRH_MODE15_Field is Interfaces.STM32.UInt2;
+   subtype CRH_CNF15_Field is Interfaces.STM32.UInt2;
+
+   --  Port configuration register high (GPIOn_CRL)
+   type CRH_Register is record
+      --  Port n.8 mode bits
+      MODE8  : CRH_MODE8_Field := 16#0#;
+      --  Port n.8 configuration bits
+      CNF8   : CRH_CNF8_Field := 16#1#;
+      --  Port n.9 mode bits
+      MODE9  : CRH_MODE9_Field := 16#0#;
+      --  Port n.9 configuration bits
+      CNF9   : CRH_CNF9_Field := 16#1#;
+      --  Port n.10 mode bits
+      MODE10 : CRH_MODE10_Field := 16#0#;
+      --  Port n.10 configuration bits
+      CNF10  : CRH_CNF10_Field := 16#1#;
+      --  Port n.11 mode bits
+      MODE11 : CRH_MODE11_Field := 16#0#;
+      --  Port n.11 configuration bits
+      CNF11  : CRH_CNF11_Field := 16#1#;
+      --  Port n.12 mode bits
+      MODE12 : CRH_MODE12_Field := 16#0#;
+      --  Port n.12 configuration bits
+      CNF12  : CRH_CNF12_Field := 16#1#;
+      --  Port n.13 mode bits
+      MODE13 : CRH_MODE13_Field := 16#0#;
+      --  Port n.13 configuration bits
+      CNF13  : CRH_CNF13_Field := 16#1#;
+      --  Port n.14 mode bits
+      MODE14 : CRH_MODE14_Field := 16#0#;
+      --  Port n.14 configuration bits
+      CNF14  : CRH_CNF14_Field := 16#1#;
+      --  Port n.15 mode bits
+      MODE15 : CRH_MODE15_Field := 16#0#;
+      --  Port n.15 configuration bits
+      CNF15  : CRH_CNF15_Field := 16#1#;
    end record
-     with Unchecked_Union, Size => 32, Volatile_Full_Access;
+     with Volatile_Full_Access, Object_Size => 32,
+          Bit_Order => System.Low_Order_First;
+
+   for CRH_Register use record
+      MODE8  at 0 range 0 .. 1;
+      CNF8   at 0 range 2 .. 3;
+      MODE9  at 0 range 4 .. 5;
+      CNF9   at 0 range 6 .. 7;
+      MODE10 at 0 range 8 .. 9;
+      CNF10  at 0 range 10 .. 11;
+      MODE11 at 0 range 12 .. 13;
+      CNF11  at 0 range 14 .. 15;
+      MODE12 at 0 range 16 .. 17;
+      CNF12  at 0 range 18 .. 19;
+      MODE13 at 0 range 20 .. 21;
+      CNF13  at 0 range 22 .. 23;
+      MODE14 at 0 range 24 .. 25;
+      CNF14  at 0 range 26 .. 27;
+      MODE15 at 0 range 28 .. 29;
+      CNF15  at 0 range 30 .. 31;
+   end record;
 
    --  IDR array element
    subtype IDR_Element is Interfaces.STM32.Bit;
@@ -84,7 +199,7 @@ package Interfaces.STM32.GPIO is
       --  unspecified
       Reserved_16_31 : Interfaces.STM32.UInt16;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for IDR_Register use record
@@ -126,7 +241,7 @@ package Interfaces.STM32.GPIO is
       --  unspecified
       Reserved_16_31 : Interfaces.STM32.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ODR_Register use record
@@ -195,7 +310,7 @@ package Interfaces.STM32.GPIO is
       --  Write-only. Reset bit 0
       BR : BSRR_BR_Field := (As_Array => False, Val => 16#0#);
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BSRR_Register use record
@@ -237,7 +352,7 @@ package Interfaces.STM32.GPIO is
       --  unspecified
       Reserved_16_31 : Interfaces.STM32.UInt16 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BRR_Register use record
@@ -283,7 +398,7 @@ package Interfaces.STM32.GPIO is
       --  unspecified
       Reserved_17_31 : Interfaces.STM32.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for LCKR_Register use record
@@ -327,30 +442,30 @@ package Interfaces.STM32.GPIO is
 
    --  General purpose I/O
    GPIOA_Periph : aliased GPIO_Peripheral
-     with Import, Address => System'To_Address (16#40010800#);
+     with Import, Address => GPIOA_Base;
 
    --  General purpose I/O
    GPIOB_Periph : aliased GPIO_Peripheral
-     with Import, Address => System'To_Address (16#40010C00#);
+     with Import, Address => GPIOB_Base;
 
    --  General purpose I/O
    GPIOC_Periph : aliased GPIO_Peripheral
-     with Import, Address => System'To_Address (16#40011000#);
+     with Import, Address => GPIOC_Base;
 
    --  General purpose I/O
    GPIOD_Periph : aliased GPIO_Peripheral
-     with Import, Address => System'To_Address (16#40011400#);
+     with Import, Address => GPIOD_Base;
 
    --  General purpose I/O
    GPIOE_Periph : aliased GPIO_Peripheral
-     with Import, Address => System'To_Address (16#40011800#);
+     with Import, Address => GPIOE_Base;
 
    --  General purpose I/O
    GPIOF_Periph : aliased GPIO_Peripheral
-     with Import, Address => System'To_Address (16#40011C00#);
+     with Import, Address => GPIOF_Base;
 
    --  General purpose I/O
    GPIOG_Periph : aliased GPIO_Peripheral
-     with Import, Address => System'To_Address (16#40012000#);
+     with Import, Address => GPIOG_Base;
 
 end Interfaces.STM32.GPIO;

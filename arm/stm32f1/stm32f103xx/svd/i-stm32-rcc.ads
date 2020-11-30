@@ -1,13 +1,12 @@
 --
---  Copyright (C) 2017, AdaCore
+--  Copyright (C) 2020, AdaCore
 --
+
+pragma Style_Checks (Off);
 
 --  This spec has been automatically generated from STM32F103.svd
 
-pragma Ada_2012;
-pragma Style_Checks (Off);
 
-with Interfaces.STM32;
 with System;
 
 package Interfaces.STM32.RCC is
@@ -58,7 +57,7 @@ package Interfaces.STM32.RCC is
       --  unspecified
       Reserved_26_31 : Interfaces.STM32.UInt6 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR_Register use record
@@ -141,7 +140,7 @@ package Interfaces.STM32.RCC is
       --  unspecified
       Reserved_27_31 : Interfaces.STM32.UInt5 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CFGR_Register use record
@@ -222,7 +221,7 @@ package Interfaces.STM32.RCC is
       --  unspecified
       Reserved_24_31 : Interfaces.STM32.Byte := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CIR_Register use record
@@ -313,7 +312,7 @@ package Interfaces.STM32.RCC is
       --  unspecified
       Reserved_22_31 : Interfaces.STM32.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for APB2RSTR_Register use record
@@ -425,7 +424,7 @@ package Interfaces.STM32.RCC is
       --  unspecified
       Reserved_30_31 : Interfaces.STM32.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for APB1RSTR_Register use record
@@ -495,7 +494,7 @@ package Interfaces.STM32.RCC is
       --  unspecified
       Reserved_11_31 : Interfaces.STM32.UInt21 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for AHBENR_Register use record
@@ -577,7 +576,7 @@ package Interfaces.STM32.RCC is
       --  unspecified
       Reserved_22_31 : Interfaces.STM32.UInt10 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for APB2ENR_Register use record
@@ -689,7 +688,7 @@ package Interfaces.STM32.RCC is
       --  unspecified
       Reserved_30_31 : Interfaces.STM32.UInt2 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for APB1ENR_Register use record
@@ -752,7 +751,7 @@ package Interfaces.STM32.RCC is
       --  unspecified
       Reserved_17_31 : Interfaces.STM32.UInt15 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for BDCR_Register use record
@@ -802,7 +801,7 @@ package Interfaces.STM32.RCC is
       --  Low-power reset flag
       LPWRRSTF       : CSR_LPWRRSTF_Field := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CSR_Register use record
@@ -863,6 +862,6 @@ package Interfaces.STM32.RCC is
 
    --  Reset and clock control
    RCC_Periph : aliased RCC_Peripheral
-     with Import, Address => System'To_Address (16#40021000#);
+     with Import, Address => RCC_Base;
 
 end Interfaces.STM32.RCC;

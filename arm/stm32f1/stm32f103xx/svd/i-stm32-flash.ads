@@ -1,13 +1,12 @@
 --
---  Copyright (C) 2017, AdaCore
+--  Copyright (C) 2020, AdaCore
 --
+
+pragma Style_Checks (Off);
 
 --  This spec has been automatically generated from STM32F103.svd
 
-pragma Ada_2012;
-pragma Style_Checks (Off);
 
-with Interfaces.STM32;
 with System;
 
 package Interfaces.STM32.FLASH is
@@ -36,7 +35,7 @@ package Interfaces.STM32.FLASH is
       --  unspecified
       Reserved_6_31 : Interfaces.STM32.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for ACR_Register use record
@@ -69,7 +68,7 @@ package Interfaces.STM32.FLASH is
       --  unspecified
       Reserved_6_31 : Interfaces.STM32.UInt26 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for SR_Register use record
@@ -124,7 +123,7 @@ package Interfaces.STM32.FLASH is
       --  unspecified
       Reserved_13_31 : Interfaces.STM32.UInt19 := 16#0#;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for CR_Register use record
@@ -195,7 +194,7 @@ package Interfaces.STM32.FLASH is
       --  unspecified
       Reserved_26_31 : Interfaces.STM32.UInt6;
    end record
-     with Volatile_Full_Access, Size => 32,
+     with Volatile_Full_Access, Object_Size => 32,
           Bit_Order => System.Low_Order_First;
 
    for OBR_Register use record
@@ -247,6 +246,6 @@ package Interfaces.STM32.FLASH is
 
    --  FLASH
    FLASH_Periph : aliased FLASH_Peripheral
-     with Import, Address => System'To_Address (16#40022000#);
+     with Import, Address => FLASH_Base;
 
 end Interfaces.STM32.FLASH;
