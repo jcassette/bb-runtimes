@@ -33,7 +33,6 @@ with Interfaces.STM32.FLASH;     use Interfaces.STM32.FLASH;
 with Interfaces.STM32.RCC;       use Interfaces.STM32.RCC;
 
 with System.BB.Parameters;       use System.BB.Parameters;
-with System.BB.MCU_Parameters;
 with System.BB.Board_Parameters; use System.BB.Board_Parameters;
 
 with System.STM32;               use System.STM32;
@@ -51,8 +50,6 @@ procedure Setup_Pll is
    LSI_Enabled     : constant Boolean := False; -- use low-speed internal clock
 
    Activate_PLL       : constant Boolean := True;
-   Activate_Overdrive : constant Boolean := False;
---   Activate_PLLI2S    : constant Boolean := False;
 
    -----------------------
    -- Initialize_Clocks --
@@ -78,14 +75,6 @@ procedure Setup_Pll is
 
       RCC_Periph.APB2ENR.IOPDEN := 1;
       RCC_Periph.APB2ENR.AFIOEN := 1;
-
-      --  PWR initialization
-      --  Select higher supply power for stable operation at max. freq.
-      --  See table "General operating conditions" of the STM32 datasheets
-      --  to obtain the maximal operating frequency depending on the power
-      --  scaling mode and the over-drive mode
-
-      System.BB.MCU_Parameters.PWR_Initialize;
 
       if not HSE_Enabled then
          --  Setup internal clock and wait for HSI stabilisation.
@@ -132,11 +121,6 @@ procedure Setup_Pll is
          end loop;
       end if;
 
-      --  Configure OverDrive mode
-      if Activate_Overdrive then
-         System.BB.MCU_Parameters.PWR_Overdrive_Enable;
-      end if;
-
       --  Configure flash
       --  Must be done before increasing the frequency, otherwise the CPU
       --  won't be able to fetch new instructions.
@@ -162,12 +146,6 @@ procedure Setup_Pll is
             exit when RCC_Periph.CFGR.SWS =
               SYSCLK_Source'Enum_Rep (SYSCLK_SRC_PLL);
          end loop;
-
-         --  Wait until voltage supply scaling has completed
-
---         loop
---            exit when System.BB.MCU_Parameters.Is_PWR_Stabilized;
---         end loop;
       end if;
    end Initialize_Clocks;
 
@@ -187,9 +165,6 @@ procedure Setup_Pll is
       RCC_Periph.CR.HSEON := 0;
       RCC_Periph.CR.CSSON := 0;
       RCC_Periph.CR.PLLON := 0;
-
-      --  Reset PLL configuration register
---      RCC_Periph.PLLCFGR := (others => <>);
 
       --  Reset HSE bypass bit
       RCC_Periph.CR.HSEBYP := 0;

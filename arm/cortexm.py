@@ -932,7 +932,6 @@ class Stm32F1(CortexM3):
         self.add_gnat_sources(
             'arm/stm32f1/%s/s-bbbopa.ads' % self.mcu,
             'arm/stm32f1/%s/s-bbmcpa.ads' % self.mcu,
-            'arm/stm32f1/%s/s-bbmcpa.adb' % self.mcu,
             'arm/stm32f1/%s/svd/i-stm32.ads' % self.mcu,
             'arm/stm32f1/%s/svd/i-stm32-flash.ads' % self.mcu,
             'arm/stm32f1/%s/svd/i-stm32-gpio.ads' % self.mcu,

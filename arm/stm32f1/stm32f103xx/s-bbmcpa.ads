@@ -29,21 +29,10 @@
 
 --  This package defines MCU parameters for the STM32F40x family
 
-with Interfaces.STM32.PWR;
-with Interfaces.STM32;
-
 package System.BB.MCU_Parameters is
    pragma No_Elaboration_Code_All;
    pragma Preelaborate;
-   use type Interfaces.STM32.Bit;
 
    Number_Of_Interrupts : constant := 83;
-
-   procedure PWR_Initialize;
-
-   procedure PWR_Overdrive_Enable;
-
-   function Is_PWR_Stabilized return Boolean
-     is (Interfaces.STM32.PWR.PWR_Periph.CSR.VOSRDY = 1);
 
 end System.BB.MCU_Parameters;
